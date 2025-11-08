@@ -3,7 +3,7 @@ import random
 import time
 
 nouns_df = pd.read_excel("./data/most-used-german-words.xlsx", sheet_name='nouns')
-# noun_data = nouns_df.set_index('german')['english'].to_dict()
+# noun_data = nouns_df.set_2index('german')['english'].to_dict()
 noun_data = nouns_df.to_dict('records')
 # any english definition with "|"
 
@@ -26,9 +26,11 @@ def practice_nouns(practice_set=noun_data):
             pracetice_words.append(practice_set[random_num])
     # if there're still words to learn
     if len(pracetice_words) > 0:
-        print("words you don't know: ")
+        print("............................................")
+        print("...words that you should practice more....: ")
         for word in pracetice_words:
             print(word["german"] + "   =>  " + word["english"])
+        print("............................................")
         print("Want to keep practicing words you don't know? (Y/N)")
         keep_practicing = input()
         if keep_practicing == "Y":
